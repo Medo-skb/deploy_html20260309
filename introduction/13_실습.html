@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduce</title>
+    <style>
+        #container{
+            width: 1000px;
+            margin: 5px auto;
+            background-color: antiquewhite;
+        }
+        #profile{
+            width: 35%;
+            height: 900px;
+            padding: 20px;
+            background-color: rgb(87, 87, 253);
+            box-sizing: border-box;
+            float: left;
+            border-top-left-radius: 3%;
+            border-bottom-left-radius: 3%;
+            margin: 0px auto;
+        }
+        #contents{
+            width: 65%;
+            height: 900px;
+            padding: 20px 30px;
+            background-color: aliceblue;
+            box-sizing: border-box;
+            float: left;
+            border-top-right-radius: 2%;
+            border-bottom-right-radius: 2%;
+        }
+        .profileimg{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 2px solid white;
+            background-image: url(../media/Sadcat.jpg);
+            background-size: contain; 
+            margin: 20px auto;
+            
+        }
+        .profiletxt{
+            color: white;
+            margin: 10px;
+        }
+        .center{text-align: center;}
+        .bold{font-weight: bold;}
+        .name{font-size: 38px;}
+        .id{
+            font-size: 15px;
+            color: gainsboro;
+        }
+        .intro{
+            font-size: 20px;
+            margin: 30px 0px;
+        }
+        .info{
+            font-size: 15px;
+            margin: 10px 0px;
+        }
+        .sns{
+            font-size: 40px;
+            margin-top: 100px;
+        }
+        .snsimg{
+            background: none;
+            border: none;
+            border-radius: 15%;
+        }
+        .snsimg:hover{
+            background-color: blue;
+            box-shadow: 2px 2px 2px gray;
+            cursor: pointer;
+        }
+        .header{
+            border-left: 5px solid blue;
+            padding-left: 15px;
+            font-size: 30px;
+            font-weight: bold;
+            margin: 20px 0px;
+        }
+        .hihglight{background-color: rgb(247, 247, 10);}
+        .contentstxt{
+            font-size: 18px;
+        }
+        ul, li{
+            margin: 5px 0px;
+        }
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        tr, th, td{
+            border : 2px solid gray
+        }
+        .tr1{border: none;}
+        .tr2{background-color: rgb(139, 139, 255);}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="profile"> 
+            <div class="profileimg"></div>
+            <div class="profiletxt center">
+                <div class="name bold">Hyundong Kim</div>
+                <div class="id">@Medo-skb</div>
+                <div class="intro">이거시간엄청오래걸리네</div>
+                <div class="info">🎂 2001-09-06</div>
+                <div class="info">🗺️ 대한민국 어딘가</div>
+                <div class="sns">
+                    SNS
+                    <div>
+                        <button type="button" class="snsimg">
+                            <img src="x-logo.png" width="40" height="auto">
+                        </button>
+                    </div>
+                    <div>
+                        <button type="button" class="snsimg">
+                            <img src="youtube.png" width="40" height="auto">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="contents">
+            <div class="header">자기소개</div>
+            <div class="contentstxt">
+                <div>
+                    <span class="hihglight">프로그래밍</span>에
+                    관심이 많습니다
+                </div>
+                <div>현재 열심히 공부하며 코딩 중</div>
+            </div>
+            <div class="header">Experience</div>
+            <ul class="contentstxt">
+                <li>쉬었음 청년</li>
+                    <ul>
+                        <li>이케하는거맞아요?</li>
+                        <li>오맞나보내</li>
+                        <li>에으 머리아프다</li>
+                    </ul>
+                <li>프로그래밍 학원</li>
+                    <ul>
+                        <li>풀스택 공부중</li>
+                        <li>대충알았다너희들의수준어려워서죽고싶어졌다</li>
+                    </ul>
+            </ul>
+            <div class="header">보유 기술</div>
+            <div class="contentstxt">
+                <ul>
+                    <li>Java</li>
+                    <li>데이터베이스</li>
+                    <li>HTML/CSS</li>
+                </ul>
+            </div>
+            <div class="header">Education</div>
+            <table>
+                <tr class="tr1">
+                    <td  class="tr1" colspan="4">학력사항</td>
+                </tr>
+                <tr class="tr2">
+                    <td>출신학교</td>
+                    <td>전공</td>
+                    <td>기간</td>
+                    <td>구분</td>
+                </tr>
+                <tr>
+                    <td>방송통신대학교</td>
+                    <td>컴퓨터과학과</td>
+                    <td>2222 ~ 2223</td>
+                    <td>재학중</td>
+                </tr>
+                <tr>
+                    <td>그냥쉬었음전문대학교</td>
+                    <td>그런거없음과</td>
+                    <td>2220 ~ 2221</td>
+                    <td>졸업</td>
+                </tr>
+                <tr>
+                    <td>송도고등학교</td>
+                    <td>-</td>
+                    <td>2017 ~ 2019</td>
+                    <td>졸업</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
