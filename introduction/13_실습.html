@@ -20,6 +20,7 @@
             border-top-left-radius: 3%;
             border-bottom-left-radius: 3%;
             margin: 0px auto;
+            box-shadow: 2px 2px 2px gray;
         }
         #contents{
             width: 65%;
@@ -30,6 +31,13 @@
             float: left;
             border-top-right-radius: 2%;
             border-bottom-right-radius: 2%;
+            box-shadow: 2px 2px 2px gray;
+        }
+        #time{
+            font-size: 20px;
+            color: white;
+            text-align: center;
+            margin-top: 120px;
         }
         .profileimg{
             width: 150px;
@@ -39,7 +47,6 @@
             background-image: url(../media/icon_36.gif);
             background-size: contain; 
             margin: 20px auto;
-            
         }
         .profiletxt{
             color: white;
@@ -98,6 +105,7 @@
         }
         .tr1{border: none;}
         .tr2{background-color: rgb(139, 139, 255);}
+        
     </style>
 </head>
 <body>
@@ -124,6 +132,7 @@
                     </div>
                 </div>
             </div>
+            <div id="time"></div>
         </div>
         <div id="contents">
             <div class="header">자기소개</div>
@@ -189,6 +198,17 @@
         </div>
     </div>
 </body>
-
 </html>
+<script>
+     setInterval(() => {
+        let datetime = new Date();
+        let obj = document.querySelector("#time");
+        let second = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds()
+        let time = datetime.getHours() + " : " +
+                   datetime.getMinutes() + " : " +
+                   second;
 
+
+        obj.innerHTML = time;
+    }, 1000);
+</script>
