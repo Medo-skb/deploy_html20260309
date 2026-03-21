@@ -161,7 +161,7 @@
             };
         },
         methods: {
-            fnTime : function(){ // 타이머 함수
+            fnTime : function(){
                 setInterval(() => {
                     let self = this;
                     let datetime = new Date();
@@ -210,7 +210,7 @@
                     }, 100);
                 });
             }
-        }, // methods
+        },
         mounted() {
             let self = this;
             self.fnTime();
