@@ -1,7 +1,6 @@
 @font-face {
     font-family: "8bitfont";
-    src: url("../font/pixelated-elegance-font/PixelatedEleganceRegular-ovawB.ttf")
-    format(woff2);
+    src: url("../font/pixelated-elegance-font/PixelatedEleganceRegular-ovawB.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
