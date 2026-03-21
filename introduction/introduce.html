@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="intro_style.css"/>
+</head>
+<body>
+    <div id="app">
+        <div id="container">
+            <div id="wrapper">
+                <div class="header">
+                    <ul class="header-menu">
+                        <li @click="fnMenu('Profile')">Profile</li>
+                        <li @click="fnMenu('About')">About</li>
+                        <li @click="fnMenu('Favorite')">Favorite</li>
+                        <li @click="fnMenu('Education')">Education</li>
+                        <li @click="fnMenu('Contact')">Contact</li>
+                    </ul>
+                </div>
+                <div class="side center">
+                    <div><img src="../media/야!!!.png" class="profileimg"></div>
+                    <div class="side-info">
+                        <div class="side-name">Hyundong Kim</div>
+                        <div class="side-id">@Medo</div>
+                    </div>
+                    <div class="side-intro">코딩너무귀찮고힘들고어렵고귀찮다</div>
+                    <div class="side-sns">
+                        <div class="sns-head">SNS</div>
+                        <div class="sns-img">
+                            X<div><a href="https://x.com/medo0906" target="_blank"><img src="../media/x-logo.png" class="logoimg"></a></div>
+                            Youtube<div><a href="https://www.youtube.com/@Medo_Main" target="_blank"><img src="../media/youtube-logo.png" class="logoimg"></a></div>
+                        </div>
+                    </div>
+                    <div class="side-timer">{{timer}}</div>
+                </div>
+                <div class="contents">
+                    <div v-if="kind == 'Profile'" class="profile">
+                        <div class="pfHead"><h1>Profile</h1></div>
+                        <div class="slide">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <div v-for="(img, index) in slideImg" :key="index" class="swiper-slide">
+                                        <img :src="img" class="slideimg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+	                        <div class="swiper-button-next"></div>
+	                        <div class="swiper-button-prev"></div>
+                        </div>
+                        <div class="pfContents">
+                            <div> 이름 : 김현동</div>
+                            <div> 나이 : 24 (2001년생)</div>
+                            <div> 거주지 : 인천광역시</div>
+                        </div>
+                    </div>
+                    <div v-if="kind == 'About'"> <!-- AI 쓴 부분 -->
+                        <div class="status-window">
+                            <h2>[ STATUS ]</h2>        
+                            <div v-for="stat in status" :key="stat.name" class="stat-row">
+                                <span class="stat-name">{{ stat.name }}</span>
+                                <div class="statbar">
+                                    <div v-for="n in 20" :key="n" class="cell-wrapper">
+                                        <div class="cell" :class="[stat.class, { filled: stat.currentValue >= n*5 }]"></div>
+                                        <div class="gap"></div>
+                                    </div>
+                                </div>
+                                <span class="stat-value">{{ stat.currentValue }}%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div v-if="kind == 'Favorite'">
+                        <div><h1>Favorite</h1></div>
+                        <div>게임</div>
+                        <div>독서</div>
+                        <div>음악감상</div>
+                        <div>작곡</div>
+                    </div>
+                    <div v-if="kind == 'Education'">
+                        <div><h1>Education</h1></div>
+                        <table>
+                            <tr class="tr1">
+                                <td  class="tr1" colspan="4">학력사항</td>
+                            </tr>
+                            <tr class="tr2">
+                                <td>출신학교</td>
+                                <td>전공</td>
+                                <td>기간</td>
+                                <td>구분</td>
+                            </tr>
+                            <tr>
+                                <td>방송통신대학교</td>
+                                <td>컴퓨터과학과</td>
+                                <td>2025 ~ 2026</td>
+                                <td>재학중</td>
+                            </tr>
+                            <tr>
+                                <td>그냥쉬었음전문대학교</td>
+                                <td>그런거없음과</td>
+                                <td>2020 ~ 2024</td>
+                                <td>졸업</td>
+                            </tr>
+                            <tr>
+                                <td>송도고등학교</td>
+                                <td>-</td>
+                                <td>2017 ~ 2019</td>
+                                <td>졸업</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div v-if="kind == 'Contact'">
+                        <div><h1>Contact</h1></div>
+                        <div class="contact">
+                            <div>Email</div>
+                            <div class="ct-txt">kiryto0912@gmail.com</div>
+                        </div>
+                        <div class="contact">
+                            <div>Github</div>
+                            <a href="https://github.com/Medo-skb" target="_blank" >
+                                <img src="../media/github-logo.png" class="ct-img">
+                            </a>
+                        </div>
+                        <div class="contact">
+                            <div>Discord</div>
+                            <a href="https://discord.com/users/779007725836435509" target="_blank">
+                                <img src="../media/discord-logo.png" class="ct-img">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                timer : "",
+                kind : "Profile",
+                swipper : null,
+                slideImg : [
+                    "../media/뻑예ㅏ.jpg",
+                    "../media/(대충라틴어브금).jpg",
+                    "../media/고딩때1.jpg",
+                ],
+                status: [
+                    { name: 'HP', targetValue: 30, currentValue: 0, class: 'hp' },
+                    { name: 'TECH', targetValue: 70, currentValue: 0, class: 'tech' },
+                    { name: 'CREATE', targetValue: 75, currentValue: 0, class: 'create' },
+                    { name: 'SOCIAL', targetValue: 40, currentValue: 0, class: 'social' },
+                    { name: 'LUCK', targetValue: 20, currentValue: 0, class: 'luck' }
+                ]
+            };
+        },
+        methods: {
+            fnTime : function(){ // 타이머 함수
+                setInterval(() => {
+                    let self = this;
+                    let datetime = new Date();
+                    let second = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds()
+                    let time = datetime.getHours() + " : " +
+                               datetime.getMinutes() + " : " +
+                               second;
+                    self.timer = time
+                }, 1000);
+            },
+            fnMenu : function(menu){
+                let self = this;
+                self.kind = menu;
+                if(menu == "Profile"){
+                    self.$nextTick(() => {
+                        self.fnInit();
+                    })
+                }
+                if(menu == "About"){
+                    self.$nextTick(() => {self.fnGuage();});
+                }
+            },
+            fnInit : function(){
+                let self = this;
+                if (self.swipper){
+                    self.swipper.destroy();    
+                }
+                self.swipper = new Swiper('.swiper', {
+                    loop: true,
+                    autoplay: {delay: 2500},
+                    pagination: { el: '.swiper-pagination', clickable: true },
+                    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+                })
+            },
+            fnGuage : function(){
+                let self = this;
+                self.status.forEach((stat) => {
+                    stat.currentValue = 0;
+                    let interval = setInterval(() => {
+                        if(stat.currentValue < stat.targetValue){
+                            stat.currentValue = stat.currentValue + 5;
+                        } else {
+                            stat.currentValue = stat.targetValue;
+                            clearInterval(interval);
+                        }
+                    }, 100);
+                });
+            }
+        }, // methods
+        mounted() {
+            let self = this;
+            self.fnTime();
+            if(self.kind == "Profile") {
+                self.fnInit();
+            }
+        }
+        
+    });
+
+    app.mount('#app');
+</script>

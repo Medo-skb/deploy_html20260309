@@ -1,0 +1,76 @@
+@font-face {
+    font-family: "8bitfont";
+    src: url(/font/pixelated-elegance-font/PixelatedEleganceRegular-ovawB.ttf)
+    format(woff2);
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    background-color: black;
+    color: white;
+}
+
+#container{
+    display: grid;
+    align-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 400px;
+    text-align: center;
+}
+
+.header{
+    font-family: "8bitfont";
+    font-size: 80px;
+    height: 100px;
+}
+
+.loadingBar {
+    white-space: pre; 
+    font-family: "8bitfont";
+    letter-spacing: 2px;
+    font-size: 40px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, white 10px, black 10px);
+    background-size: 20px 100%;
+    background-repeat: repeat-x;
+    height: 40px;
+    width: 0px;
+    max-width: 100%;
+
+    animation: loading 8s ease-in-out forwards;
+}
+
+.nextBtn{
+    font-family: "8bitfont";
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 100px;
+    cursor: pointer;
+    text-align: center;
+    border: 16px dashed white;
+}
+
+.nextBtn:hover{
+    background-color: rgb(39, 39, 39);
+}
+
+@keyframes blink {
+    0%{opacity: 0;}
+    50%{opacity: 1;}
+    100%{opacity: 1;}
+}
+
+@keyframes loading {
+    0%{width: 0%;}
+    100%{width: 100%;}
+}
+
+.nextBtn:hover .blink-anime{
+    animation: blink 1s step-end infinite;
+}

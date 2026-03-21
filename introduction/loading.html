@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="loading_style.css">
+</head>
+<body>
+    <div id="app">
+        <div id="container">
+            <div v-if="!isFinished">
+                <div class="header">
+                    Loading{{dots}}
+                </div>
+                <div class="loadingBar">
+                </div>
+            </div>
+            <div v-else>
+                <button class="nextBtn" @click="fnIntro">
+                    <span class="blink-anime">▶</span>Enter
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                dots : "",
+                dotsInterval : null,
+                isFinished : false
+            };
+        },
+        methods: {
+            LoadingDots : function(){
+                let self = this;
+                self.dotsInterval = setInterval(() => {
+                    self.dots = self.dots.length >= 3 ? "." : self.dots + ".";
+                }, 400);
+                setTimeout(() => {
+                    clearInterval(self.dotsInterval);
+                    self.isFinished = true;
+                }, 10000);
+            },
+            fnIntro : function(){
+                let self = this;
+                alert("반갑습니다!")
+                location.href="introduce.html"
+            }
+        },
+        mounted() {
+            let self = this;
+            self.LoadingDots();
+        }
+    });
+    app.mount('#app');
+</script>
